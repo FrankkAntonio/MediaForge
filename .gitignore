@@ -1,0 +1,18 @@
+# Ambiente virtual
+.venv/
+
+# Downloads
+downloads/*
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Testes
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# Sistema
+.DS_Store
