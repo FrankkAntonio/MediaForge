@@ -1,15 +1,16 @@
-from src.mediaforge.downloader import MediaDowloader
+from src.mediaforge.downloader import MediaDownloader
 
 class MediaForgeCLI:
 
     def __init__(self):
-        self.downloader = MediaDowloader()
+        self.downloader = MediaDownloader()
 
     def show_menu(self):
         print("\n=== MediaForge CLI ===")
         print("1. Baixar vídeo")
         print("2. Baixar áudio")
-        print("3. Sair")
+        print("3. Baixar playlist")
+        print("4. Sair")
 
     def run(self):
         while True:
@@ -23,6 +24,8 @@ class MediaForgeCLI:
                 case "2":
                     self.download_audio()
                 case "3":
+                    self.download_playlist()
+                case "4":
                     print("Encerrando o MediaForge CLI. Até logo!")
                     break
                 case _:
@@ -45,3 +48,21 @@ class MediaForgeCLI:
             print("Download do áudio concluído!")
         except Exception as error:
             print(f"Erro ao baixar o áudio: {error}")
+
+    def download_playlist(self):
+        url = input("Digite o link da playlist: ")
+
+        try:
+
+            total, downloaded, ignored = self.downloader.download_playlist(url)
+
+            print("\n================================")
+            print("      PLAYLIST CONCLUÍDA")
+            print("================================")
+            print(f"Total de vídeos: {total}")
+            print(f"Baixados:        {downloaded}")
+            print(f"Ignorados:       {ignored}")
+            print("================================")
+
+        except Exception as error:
+            print(f"Erro ao baixar a playlist: {error}")
