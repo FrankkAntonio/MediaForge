@@ -1,12 +1,9 @@
-from src.mediaforge.downloader import MediaDowloader
+from src.mediaforge.cli import MediaForgeCLI
 
 def main():
-    url = input("Digite o link da sua URL: ")
 
-    downloader = MediaDowloader()   
-    downloader.download_audio(url)
-
-    print("\nDownload completo!")
+    cli = MediaForgeCLI()
+    cli.run()
 
 if __name__ == "__main__":
     main()
