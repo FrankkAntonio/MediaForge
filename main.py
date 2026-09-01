@@ -1,9 +1,9 @@
-from src.mediaforge.downloader import mediaDowloader
+from src.mediaforge.downloader import MediaDowloader
 
 def main():
     url = input("Digite o link da sua URL: ")
 
-    downloader = mediaDowloader()
+    downloader = MediaDowloader()   
     downloader.download_video(url)
 
     print("\nDownload completo!")
