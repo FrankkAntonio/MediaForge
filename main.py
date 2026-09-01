@@ -4,7 +4,7 @@ def main():
     url = input("Digite o link da sua URL: ")
 
     downloader = MediaDowloader()   
-    downloader.download_video(url)
+    downloader.download_audio(url)
 
     print("\nDownload completo!")
 

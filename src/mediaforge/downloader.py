@@ -13,6 +13,19 @@ class MediaDowloader:
         }
         with yt_dlp.YoutubeDL(options) as ydl:
             ydl.download([url])
+
+    def download_audio(self, url):
+        options = {
+            "format": "bestaudio/best",
+            "outtmpl": f"{self.output_path}/%(title)s.%(ext)s",
+            "postprocessors": [{
+                "key": "FFmpegExtractAudio",
+                "preferredcodec": "mp3",
+                "preferredquality": "192",
+            }],
+        }
+        with yt_dlp.YoutubeDL(options) as ydl:
+            ydl.download([url])
             
 
 
